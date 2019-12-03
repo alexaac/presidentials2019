@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="keywords" content="map,harta,cartogram,presidential,prezidentiale,elections,alegeri,romania,2019,#romanianpresidentialelections2019,harta interactiva, interactive map">
+        <title>Romania Presidential Elections 2019 - Map and cartograms</title>
+        <link href="https://fonts.googleapis.com/css?family=Niconne|Open+Sans&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="./css/elections.css">
+    </head>
+    <body>
+        <div class="wrapper">
+                <hr>
+            <div class="row">
+                <a name="top" aria-label="Top page anchor"></a>
+                <div class="row">
+                    <article class="col-1-4">
+                        <h3>First Two Candidates</h3>
+                        <div id="legend-percent"></div>
+                        <h3>Ordered Districts</h3>
+                        <div id="legend-population"></div>
+                        <h3>Votes per Candidates</h3>
+                        <div id="candidates-donut"></div>
+                        <hr>
+                        <div class="panel">Data: <a href="https://geoportal.ancpi.ro/" target="_blank">Geoportal ANCPI</a>, <a href="https://prezenta.bec.ro/prezidentiale10112019" target="_blank">Prezența Vot BEC</a>
+                        </div>
+                        <hr>
+                        <div class="panel">
+                            <a href="./"><strong>Back to site</strong></a>
+                        </div>
+                        <hr>
+                        <div class="panel">
+                            © 2019 <a href="https://maptheclouds.com/">MapTheClouds</a>
+                        </div>
+                    </article>
+                    <hr>
+                    <article class="col-1-4">
+                        <section>
+                            <h3>Geography</h3>
+                            <div id="geography"></div>
+                        </section>
+                        <hr>
+                        <section>
+                            <h3>Non-Contiguous</h3>
+                            <div id="noncont-cartogram"></div>
+                        </section>
+                        <hr>
+                        <section>
+                            <h3>Votes per Districts</h3>
+                            <div id="counties-treemap"></div>
+                        </section>
+                    </article>
+                    <article class="col-1-4">
+                        <section>
+                            <h3>Gridded</h3>
+                            <div id="gastner-g-cartogram"></div>
+                        </section>
+                        <hr>
+                        <section>
+                            <h3>Dorling</h3>
+                            <div id="dorling-cartogram"></div>
+                        </section>
+                        <hr>
+                    </article>
+                    <article class="col-1-4">
+                        <section>
+                            <h3>Contiguous</h3>
+                            <div id="gastner-c-cartogram"></div>
+                        </section>
+                        <hr>
+                        <section>
+                            <h3>Demers</h3>
+                            <div id="demers-cartogram"></div>
+                        </section>
+                        <hr>
+                        <section>
+                            <h3><strong>Romania Presidential Elections 2019</strong></h3>
+                            <div class="panel">
+                                <button id="rounds-btn" class="rounds-btn">See Round 1</button>
+                            </div>
+                            <div class="panel">
+                                <div id="spinner"></div>
+                            </div>
+                        </section>
+                    </article>
+                </div>
+                <button id="top-btn"><a href="#top" style="color: white" aria-label="Top of the page">˄</a></button>
+            </div>
+            <hr>
+        </div>
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+        <script src="https://d3js.org/topojson.v2.min.js"></script>
+        <script src="https://unpkg.com/d3-force-attract@latest"></script>
+        <script src="https://d3js.org/d3-selection-multi.v0.4.min.js"></script>
+        <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+        <script src="https://unpkg.com/d3-geo-scale-bar@0.0.2/build/d3-geo-scale-bar.min.js"></script>
+        <script src="https://unpkg.com/d3-geo-scale-bar@0.2.0/build/d3-geo-scale-bar.js"></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.3.2/spin.min.js'></script>
+
+        <script type="module" src="./js/elections.js"></script>
+    </body>
+</html>

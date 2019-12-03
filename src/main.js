@@ -56,7 +56,7 @@ export default app;
             };
             setTimeout(function() {
                 spinner.stop();
-            }, 1500);
+            }, 1000);
         })
 
     const promises = [

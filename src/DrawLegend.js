@@ -1,6 +1,7 @@
 import * as Utils from './Utils.js'
 import * as Config from './Config.js'
 
+// draw a scalebar in miles and km, use geographic data to set extent
 export const drawScaleBar = (votesStats, layer, svg) => {
     //https://bl.ocks.org/HarryStevens/8c8d3a489aa1372e14b8084f94b32464
 
@@ -39,6 +40,7 @@ export const drawScaleBar = (votesStats, layer, svg) => {
 
 };
 
+// draw a legend based on the percentage of votes per the final candidates
 export const drawVotesPercentageLegend = (votesStats, layer, svg) => {
 
     const data = votesStats.formattedData;
@@ -152,6 +154,7 @@ export const drawVotesPercentageLegend = (votesStats, layer, svg) => {
 
 };
 
+// draw a legend based on the number of votes per county
 export const drawVotesByPopulationLegend = (votesStats, layer, svg) => {
     // http://www.ralphstraumann.ch/projects/swiss-population-cartogram/
 
@@ -221,6 +224,7 @@ export const drawVotesByPopulationLegend = (votesStats, layer, svg) => {
 
 };
 
+// draw a treemap from the total votes per county
 export const drawCountiesTreemap = (votesStats, layer, svg) => {
     // https://bl.ocks.org/mbostock/4063582
 
@@ -300,6 +304,7 @@ export const drawCountiesTreemap = (votesStats, layer, svg) => {
   
 };
 
+// draw a donut from the percentage of all candidates
 export const drawCandidatesDonut = (votesStats, layer, svg) => {
     // bl.ocks.org/nbremer/b603c3e0f7a74794da87/519786faa068384a3b9a08c45ba3a8f356b84407
 
@@ -412,6 +417,8 @@ export const drawCandidatesDonut = (votesStats, layer, svg) => {
         
 };
 
+/* draw a legend in the form of a circle or of a square, for each of the
+   geographic data layers, based on the number of votes */
 export const drawAreaLegend = (args) => {
     // https://bl.ocks.org/HarryStevens/b779b431075d1a2c5710e9b826736650/9060c2bdd4e553ed445dbdc0d3bec43c71ec37da
 

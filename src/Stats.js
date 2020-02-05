@@ -1,9 +1,12 @@
 import * as Config from './Config.js'
 
+// group the elections data by counties
 export const groupvotesByCounties = (data) => {
 
     let resultByCounty = [];
     data.reduce( (res, data_row) => {
+        /* aggregate by district code, keep the columns representing total votes
+           and the votes per candidate, add district code and county name */
         const columns = ['c', 'g1', 'g2', 'g3', 'g4', 'g5', 'g6', 'g7', 'g8', 'g9', 'g10', 'g11', 'g12', 'g13', 'g14'];
         const district_code = data_row['Cod birou electoral'];
 
@@ -18,6 +21,8 @@ export const groupvotesByCounties = (data) => {
 
             resultByCounty.push(res[district_code]);
         };
+
+        // make the total per county
         columns.forEach( col => {
             res[district_code][col] += Number(data_row[col]);
         });
@@ -28,8 +33,10 @@ export const groupvotesByCounties = (data) => {
     return resultByCounty;
 }
 
+// group the elections data by candidates
 export const groupVotesByCandidates = (resultByCounty, electionsDate) => {
-
+    /* aggregate by candidate name per county, then summarize for each
+       candidate and calculate the percentage per total */
     const resultByCandidates = [];
     let columns = [];
 
@@ -70,6 +77,9 @@ export const groupVotesByCandidates = (resultByCounty, electionsDate) => {
     return resultByCandidates;
 };
 
+/* normalize the elections data fields for both rounds
+   and group them by district code; geographic data is at county level,
+   we must aggregate elections data from precinct level to county level */
 export const groupElectoralDataByDistrict = (data, electionsDate) => {
     let electoralDataByDistrict = d3.map();
     data.forEach( d => {

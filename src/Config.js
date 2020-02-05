@@ -1,3 +1,4 @@
+// field meaning for the elections data
 export const COL_LEGEND = {
     'a': 'Numărul total al alegătorilor prevăzut în lista electorală permanentă existentă în secția de votare',
     'b': 'Numărul total al alegătorilor care s-au prezentat la urne',
@@ -10,6 +11,7 @@ export const COL_LEGEND = {
     'f': 'Numărul buletinelor de vot neîntrebuințate și anulate'
 };
 
+// field meaning for votes for each candidate, round 1
 export const CANDIDATES_2019 = {
     'g1': { name: 'KLAUS-WERNER IOHANNIS', color: '#2171b5' },
     'g2': { name: 'THEODOR PALEOLOGU', color: '#7fc6bc' },
@@ -27,6 +29,7 @@ export const CANDIDATES_2019 = {
     'g14': { name: 'ALEXANDRU CUMPĂNAŞU', color: '#888622' },
 };
 
+// field meaning for votes for each candidate, round 2
 export const CANDIDATES_2019_2 = {
     'g1': { name: 'KLAUS-WERNER IOHANNIS', color: '#2171b5' },
     'g2': { name: 'VASILICA-VIORICA DĂNCILĂ', color: '#fa8376' },
@@ -34,11 +37,12 @@ export const CANDIDATES_2019_2 = {
 
 export const CANDIDATES_2014 = {};
 
+// the list of geographic data layers - same data, different shapes
 export const LAYERLIST = [
-    'counties_wgs84', 
-    'counties_cart_wgs84', 
-    'counties_cart_hex_10000_wgs84',
-    'counties_cart_hex_10000d_wgs84'
+    'counties_wgs84',                 // counties with district id data
+    'counties_cart_wgs84',            // same counties as cartogram
+    'counties_cart_hex_10000_wgs84',  // hexagons from the cartogram
+    'counties_cart_hex_10000d_wgs84'  // dissolved hexagons by county
 ];
 
 export const width = 620,
@@ -47,6 +51,7 @@ export const width = 620,
 export const viewport_width = 740,
     viewport_height = 680;
 
+//color scales showing which candidate had the most influence per county
 export const colorScaleRed = d3.scaleThreshold()
     .domain( [0, 10, 20, 30, 40, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100 ] )
     .range(d3.schemeReds[9]);
@@ -74,6 +79,8 @@ export const path = d3.geoPath()
 
 export const roundToNearestMultipleOf = m => n => Math.ceil(Math.round(n/m)*m);
 
+/* normalize the elections data fields for both rounds, and 2014 elections
+   and group them by district code */
 export const fieldMap = (d) => {
 
     return {

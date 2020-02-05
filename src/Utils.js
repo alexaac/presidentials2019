@@ -6,6 +6,8 @@ export const pair = (array) => {
     });
 }
 
+/* apply the color scales showing which candidate had the most influence
+   per county, to every chart, map and legend */
 export const colorLayers = (d) => {
     return ( d.properties.joined.rate1 > d.properties.joined.rate2 ) 
                 ? ( d.properties.joined.electionsDate === "2019-11-10")
@@ -16,6 +18,7 @@ export const colorLayers = (d) => {
                     : Config.colorScaleBlue2(d.properties.joined.rate2);
 };
 
+// use a tooltip to show info per county, simultaneous in all charts
 export const tooltip_div = d3.select("body")
     .append("tooltip_div") 
     .attr("class", "tooltip")       
@@ -48,6 +51,7 @@ export const unHighlight = (d) => {
         .attr("style", "stroke: none; cursor: none;");
 }
 
+// completely swipe out the previous view
 export const repaint = () => {
     d3.select("#legend-percent").selectAll("*").remove();
     d3.select("#legend-population").selectAll("*").remove();
@@ -74,6 +78,7 @@ export const repaint = () => {
     return [svg1, svg2, svg3, svg4, svg5, svg6, svg7, svg8, svg9, svg10];
 }
 
+// remap fields for abroad data to match local data
 export const reMapFields = (data) => {
     data.forEach( d => {
         d.c = d.d1;

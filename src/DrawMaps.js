@@ -2,6 +2,7 @@ import * as Config from './Config.js';
 import * as Utils from './Utils.js';
 import { drawAreaLegend } from './DrawLegend.js';
 
+// draw the geographic data maps
 export const draw = (votesStats, layer, svg) => {
     const geoData = votesStats.formattedData;
 
@@ -10,7 +11,9 @@ export const draw = (votesStats, layer, svg) => {
         geometries: geoData.objects[layer].geometries
     });
     const thisMapPath = d3.geoPath()
-        .projection(Config.projection.fitSize([Config.width, Config.height], geojsonFeatures));
+        .projection(
+            Config.projection
+                  .fitSize([Config.width, Config.height], geojsonFeatures));
 
     const nodes = topojson.feature(geoData, geoData.objects[layer]).features;
 
@@ -83,6 +86,7 @@ export const draw = (votesStats, layer, svg) => {
     }
 };
 
+// draw the Dorling cartogram based on number of votes from the geographic data
 export const drawDorling = (votesStats, layer, svg) => {
     // https://bl.ocks.org/nitaku/49a6bde57d8d8555b6823c8c6d05c5a8/ac5cc21562ba29d015a6375d9a8e854020eede1f
 
@@ -209,6 +213,7 @@ export const drawDorling = (votesStats, layer, svg) => {
     
 };
 
+// draw the Demers cartogram based on number of votes from the geographic data
 export const drawDemers = (votesStats, layer, svg) => {
     // https://bl.ocks.org/martgnz/34880f7320eb5a6745e2ed7de7914223
 
@@ -318,6 +323,7 @@ export const drawDemers = (votesStats, layer, svg) => {
     });
 };
 
+// draw the Non-Contiguous cartogram based on number of votes from the geographic data
 export const drawNonCont = (votesStats, layer, svg) => {
     // https://strongriley.github.io/d3/ex/cartogram.html
 

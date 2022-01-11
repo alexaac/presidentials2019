@@ -79,7 +79,7 @@ tooltip_div.tooltip {
     pointer-events: none;
     text-anchor: middle;
     fill: white;
-    text-shadow: 0 0 2px black;
+    text-shadow: 0 0 2px #66aed8;
 }
 
 .feature-label.hidden {
@@ -87,7 +87,7 @@ tooltip_div.tooltip {
 }
 
 g.features path:hover, g.bar rect:hover, .bubble:hover, .districts:hover {
-    stroke: #00ffff;
+    stroke: ;
     stroke-width: 2px;
     fill-opacity: 0.8;
 }
